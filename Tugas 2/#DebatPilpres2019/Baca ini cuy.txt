@@ -1,0 +1,2 @@
+pilpres.csv hanya ada 7631 tweets
+sedangkan pilpres ada 12641 tweeets
