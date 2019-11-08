@@ -2,7 +2,10 @@ import pandas as pd
 import csv
 import re
 
-df2 = pd.read_csv("pilpres.csv",sep=';',error_bad_lines=False) #read csv
+
+
+
+df2 = pd.read_csv("pilpres2.csv",sep=';',error_bad_lines=False) #read csv
 df3 = df2['text'] #print column text
 
 # with open('pilpres.csv') as csv_file:
@@ -45,9 +48,37 @@ split = df.text.str.split(expand=True).stack() #split sentences and expand out i
 # })  
 wordcount={}
 for text in split: #text in split(read above)
-    if re.search(r'^#', text) is not None: #if there is the word '#' in text(split)  
-        print(text)  #then print word(text). and if none word '#' then nothing action
-        # if my_word == text:
-        #     wordcount[my_word] = 1
-        # else:
-        #     wordcount[my_word] += 1
+    if re.search(r'(^#)', text) is not None : #if there is the word '#' in text(split)  
+                              #then print word(text). and if none word '#' then nothing action
+        if text in wordcount :
+            wordcount[text] = wordcount[text] + 1
+                  
+        else: 
+            wordcount[text] = 1
+
+        op=re.findall(r'.+?(?=.ttp.*)',text)   
+        if len(op)!=0:
+            for text in op : 
+                if text in wordcount :
+                    wordcount[text] = wordcount[text] + 1
+                  
+                else: 
+                    wordcount[text] = 1
+       
+
+# for word in wordcount[text] :
+#     print
+# for word, count in sorted(word_counts.items()):
+#     print('"%s" is repeated %d time%s.' % (word, count, "s" if count > 1 else ""))  
+# print(key)  
+
+# for key,count in list(wordcount.items()): 
+#     # df_hasil = pd.DataFrame(np.array(key, count),columns=['hashtag', 'count'])
+#     # print(df_hasil)
+#     # key1=[(key),(count)]
+    
+#     # hasil=pd.DataFrame([key1],columns=['hashtag','count'])
+#     print(key,':',count)
+#     print('TOTAL : '+ wordcount[text])
+    
+# print(wordcount[text])
