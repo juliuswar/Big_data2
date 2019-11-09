@@ -106,7 +106,7 @@ def get_jaccard_sim(hasil_benar2_akhir, hasil_benar2_akhir_2):
     c = doc1.intersection(doc2)
     
     # nltk.jaccard_distance(doc1, doc2)
-    print (float(len(c)) / (len(doc1) + len(doc2) - len(c)), 'Jaccard Distance between doc1 and doc2')
+    print (float(len(c)) / (len(doc1) + len(doc2) - len(c)), 'Distance between doc1 and doc2 with algortma jaccard')
 
 
 get_jaccard_sim(hasil_benar2_akhir,hasil_benar2_akhir_2)    
