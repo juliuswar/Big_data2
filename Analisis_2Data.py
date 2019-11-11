@@ -42,7 +42,7 @@ for text in split_doc1: #text in split(read above)
             cari_koma = re.compile(r'\,',re.S)
             hapus_koma = cari_koma.sub("",hapus_titik)
             hasil_benar2_akhir = hapus_koma
-           
+       
             if hasil_benar2_akhir in wordcount :
                 wordcount[hasil_benar2_akhir] = wordcount[hasil_benar2_akhir] + 1
                   
@@ -54,7 +54,6 @@ for text in split_doc1: #text in split(read above)
         
 
 # DOC 2
-wordcount2={}
 for text2 in split_doc2: #text in split(read above)
     if re.search(r'(^#)', text2)  : #if there is the word '#' in text(split)  
                               #then print word(text). and if none word '#' then nothing action
@@ -86,9 +85,13 @@ for text2 in split_doc2: #text in split(read above)
         else:
             pass
                        
-# print(wordcount[hasil_benar2_akhir]) #hasil counts
 
-#Membuat list dan count
+# # Jumlah Data
+# print(wordcount[hasil_benar2_akhir]) #hasil counts
+# print(wordcount2[hasil_benar2_akhir_2]) #hasil counts
+# print(wordcount3[hasil_benar2_akhir_3]) #hasil counts
+
+# Membuat list dan count
 # for key,count in list(wordcount.items()): 
 #      print('WORD 1')
 #      print(key,':',count)
@@ -98,17 +101,17 @@ for text2 in split_doc2: #text in split(read above)
 #      print('WORD 2')
 #      print(key,':',count)
 
-
-# CODE WITH ALGORITMA JACCARD DISTANCE 
-def get_jaccard_sim(hasil_benar2_akhir, hasil_benar2_akhir_2): 
-    doc1 = set(hasil_benar2_akhir)
-    doc2 = set(hasil_benar2_akhir_2)
+# CODE WITH ALGORITMA JACCARD DISTANCE
+def get_jaccard_sim(list1, list2): 
+    doc1 = set(list1)
+    doc2 = set(list2)
     c = doc1.intersection(doc2)
+
+    hasil = float(len(c)) / (len(doc1) + len(doc2) - len(c))
+    print(hasil)
+    return hasil
     
-    # nltk.jaccard_distance(doc1, doc2)
-    print (float(len(c)) / (len(doc1) + len(doc2) - len(c)), 'Distance between doc1 and doc2 with algortma jaccard')
-
-
-get_jaccard_sim(hasil_benar2_akhir,hasil_benar2_akhir_2)    
-
+print(5*'=','#Doc 1 = Doc 2 ')  
+# #DOC 1 = Doc 2
+get_jaccard_sim(wordcount.keys(),wordcount2.keys())
 
