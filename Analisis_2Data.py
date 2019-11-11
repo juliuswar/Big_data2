@@ -54,6 +54,7 @@ for text in split_doc1: #text in split(read above)
         
 
 # DOC 2
+wordcount2={}
 for text2 in split_doc2: #text in split(read above)
     if re.search(r'(^#)', text2)  : #if there is the word '#' in text(split)  
                               #then print word(text). and if none word '#' then nothing action
@@ -86,17 +87,16 @@ for text2 in split_doc2: #text in split(read above)
             pass
                        
 
-# # Jumlah Data
+# Jumlah Data
 # print(wordcount[hasil_benar2_akhir]) #hasil counts
 # print(wordcount2[hasil_benar2_akhir_2]) #hasil counts
-# print(wordcount3[hasil_benar2_akhir_3]) #hasil counts
 
 # Membuat list dan count
 # for key,count in list(wordcount.items()): 
 #      print('WORD 1')
 #      print(key,':',count)
 
-# #Membuat list dan count
+# Membuat list dan count
 # for key,count in list(wordcount2.items()): 
 #      print('WORD 2')
 #      print(key,':',count)
